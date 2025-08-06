@@ -7,6 +7,6 @@ export const environment : AppEnvironment = {
   production: true,
   endpoints: {
     auth: `${apiBaseUrl}/auth`,
-    listing: `${apiBaseUrl}/listing`
+    listing: `${apiBaseUrl}`
   }
 };
