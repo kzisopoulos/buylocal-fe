@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
   imports: [RouterOutlet],
-  templateUrl: './app.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class App {}
+export class LayoutComponent {}
