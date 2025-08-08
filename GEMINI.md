@@ -38,6 +38,10 @@ You are an expert in TypeScript, Angular, and scalable web application developme
 - Keep templates simple and avoid complex logic
 - Use native control flow (`@if`, `@for`, `@switch`) instead of `*ngIf`, `*ngFor`, `*ngSwitch`
 - Use the async pipe to handle observables
+- Use tailwind to style elements
+- Use only what is provided in the official tailwind , for example do not use text-muted-foreground or things like that, as they do not exist in this codebase
+- Avoid overly complex nested element structures
+- If you want to create a component check if it first exists inside components/\*_/_ folder.
 
 ## Services
 

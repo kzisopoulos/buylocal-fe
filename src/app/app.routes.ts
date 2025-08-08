@@ -12,11 +12,16 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
-    canActivate: [authGuard],
     children: [
       {
         path: '',
+        pathMatch: 'full',
         loadComponent: () => import('./pages/home/home.component'),
+      },
+      {
+        path: 'dashboard',
+        loadComponent: () => import('./pages/dashboard/dashboard.component'),
+        canActivate: [authGuard],
       },
     ],
   },
