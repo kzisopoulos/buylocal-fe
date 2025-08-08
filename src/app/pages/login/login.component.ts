@@ -8,6 +8,8 @@ import {
   CardHeaderComponent,
 } from '../../components/ui/card';
 import { ButtonComponent } from '../../components/ui/button/button.component';
+import { InputComponent } from '../../components/ui/input/input.component';
+import { LabelComponent } from '../../components/ui/label/label.component';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +19,8 @@ import { ButtonComponent } from '../../components/ui/button/button.component';
     CardHeaderComponent,
     CardContentComponent,
     ButtonComponent,
+    LabelComponent,
+    InputComponent,
   ],
   templateUrl: './login.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

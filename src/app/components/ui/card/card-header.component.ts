@@ -7,7 +7,7 @@ import {
 import { cn } from '../../../utils';
 
 @Component({
-  selector: '[app-card-header]',
+  selector: '[appCardHeader]',
   template: ` <ng-content></ng-content> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

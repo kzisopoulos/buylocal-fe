@@ -7,7 +7,7 @@ import {
 import { cn } from '../../../utils';
 
 @Component({
-  selector: '[app-card-content]',
+  selector: '[appCardContent]',
   template: ` <ng-content></ng-content> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

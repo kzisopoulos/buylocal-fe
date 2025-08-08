@@ -37,7 +37,7 @@ export const buttonVariants = cva(
 export type ButtonProps = VariantProps<typeof buttonVariants>;
 
 @Component({
-  selector: 'button[app-button]',
+  selector: 'button[appButton]',
   standalone: true,
   template: ` <ng-content></ng-content> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
