@@ -3,8 +3,6 @@ import { inject, Injectable, signal } from '@angular/core';
 import { take } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 
-
-
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +14,9 @@ export class ListingService {
 
   getListings(): void {
     this.#httpClient
-      .get<any>(`${environment.endpoints.listing}/listing`, { withCredentials: true })
+      .get<any>(`${environment.endpoints.listing}/listing`, {
+        withCredentials: true,
+      })
       .pipe(take(1))
       .subscribe((listings) => this.#availableListings.set(listings));
   }

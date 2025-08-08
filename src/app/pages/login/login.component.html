@@ -1,7 +1,5 @@
 <div class="flex items-center gap-2 p-4">
-
-  <div app-card class="w-fit    ">
-
+  <div app-card class="w-fit">
     <h2 app-card-header>Login</h2>
     <form app-card-content [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div>
@@ -12,12 +10,12 @@
         <label for="login-password">Password</label>
         <input id="login-password" type="password" formControlName="password" />
       </div>
-      <button app-button type="submit" [disabled]="loginForm.invalid">Log In</button>
+      <button app-button type="submit" [disabled]="loginForm.invalid">
+        Log In
+      </button>
     </form>
   </div>
 
-
-  
   <div app-card class="w-fit">
     <h2 app-card-header>Register</h2>
     <form app-card-content [formGroup]="registerForm" (ngSubmit)="onRegister()">
@@ -37,8 +35,9 @@
           formControlName="password"
         />
       </div>
-      <button app-button type="submit" [disabled]="registerForm.invalid">Register</button>
+      <button app-button type="submit" [disabled]="registerForm.invalid">
+        Register
+      </button>
     </form>
   </div>
- 
 </div>

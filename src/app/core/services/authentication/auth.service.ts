@@ -17,17 +17,19 @@ export class AuthService {
   }
 
   checkAuthStatus() {
-    return this.http.get(`${environment.endpoints.auth}/profile`, { withCredentials: true }).pipe(
-      tap((user) => {
-        if (user) {
-          this.isAuthenticated.set(true);
-        }
-      }),
-      catchError(() => {
-        this.isAuthenticated.set(false);
-        return EMPTY;
-      })
-    );
+    return this.http
+      .get(`${environment.endpoints.auth}/profile`, { withCredentials: true })
+      .pipe(
+        tap((user) => {
+          if (user) {
+            this.isAuthenticated.set(true);
+          }
+        }),
+        catchError(() => {
+          this.isAuthenticated.set(false);
+          return EMPTY;
+        }),
+      );
   }
 
   login(credentials: any): Observable<any> {
@@ -54,7 +56,7 @@ export class AuthService {
         tap(() => {
           this.isAuthenticated.set(false);
           this.#router.navigate(['/login']);
-        })
+        }),
       );
   }
 }

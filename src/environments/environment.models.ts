@@ -3,5 +3,5 @@ export interface AppEnvironment {
   endpoints: {
     auth: string;
     listing: string;
-  }
+  };
 }

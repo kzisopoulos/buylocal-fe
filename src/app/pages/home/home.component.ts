@@ -13,9 +13,9 @@ import { ButtonComponent } from '../../components/ui/button/button.component';
   imports: [ButtonComponent],
   template: `<h1>Welcome to BuyLocal!</h1>
     <button (click)="onLogout()">Logout</button>
-    <button app-button (click)="refetchListings()" variant="default"
-      >x</button
-    > `,
+    <button app-button (click)="refetchListings()" variant="default">
+      x
+    </button> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class HomeComponent implements OnInit {
