@@ -1,6 +1,6 @@
 import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, take, tap } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../../../environments/environment';
@@ -52,6 +52,7 @@ export class AuthService {
         withCredentials: true,
       })
       .pipe(
+        take(1),
         tap(() => {
           this.isAuthenticated.set(false);
           this.#router.navigate(['/']);

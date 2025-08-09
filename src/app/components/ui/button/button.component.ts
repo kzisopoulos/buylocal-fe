@@ -38,7 +38,6 @@ export type ButtonProps = VariantProps<typeof buttonVariants>;
 
 @Component({
   selector: 'button[appButton]',
-  standalone: true,
   template: ` <ng-content></ng-content> `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

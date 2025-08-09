@@ -5,11 +5,6 @@ import { authGuard } from './core/guards/authentication/auth.guard';
 
 export const routes: Routes = [
   {
-    path: 'login',
-    loadComponent: () => import('./pages/login/login.component'),
-    canActivate: [loginGuard],
-  },
-  {
     path: '',
     component: LayoutComponent,
     children: [
@@ -17,6 +12,16 @@ export const routes: Routes = [
         path: '',
         pathMatch: 'full',
         loadComponent: () => import('./pages/home/home.component'),
+      },
+      {
+        path: 'explore',
+        pathMatch: 'full',
+        loadComponent: () => import('./pages/explore/explore.component'),
+      },
+      {
+        path: 'login',
+        loadComponent: () => import('./pages/login/login.component'),
+        canActivate: [loginGuard],
       },
       {
         path: 'dashboard',
