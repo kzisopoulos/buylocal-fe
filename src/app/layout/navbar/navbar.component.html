@@ -1,32 +1,43 @@
 <nav
-  class="fixed bottom-0 left-0 right-0 z-50 border-t bg-white md:relative md:border-none"
+  class="fixed bottom-0 left-0 right-0 z-50 border-t border-gray-300 bg-white md:relative md:border-none"
 >
   <div class="flex h-16 items-center justify-between">
     <div class="hidden md:block">
-      <div
-        class="flex items-center gap-1 rounded-l-2xl bg-linear-to-r from-blue-200 to-white to-35% p-2"
-      >
-        <lucide-icon
-          [name]="ShoppingCartIcon"
-          class="size-8 font-black text-blue-400"
-        ></lucide-icon>
-        <a routerLink="/" class="text-xl font-bold text-blue-400">BuyLocal</a>
-      </div>
+      <app-logo></app-logo>
     </div>
+
     <div
       class="flex w-full items-center justify-around md:w-auto md:justify-center"
     >
       @for (navLink of navLinks(); track navLink.link) {
         <a
           [routerLink]="navLink.link"
-          class="flex flex-col gap-1 items-center text-gray-600 hover:text-gray-900 md:ml-8 md:flex-row"
+          routerLinkActive="text-blue-400 md:bg-blue-50"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 text-gray-500 transition-all duration-200 ease-in-out hover:text-blue-400 hover:md:bg-blue-50 hover:md:scale-105 md:ml-4 md:flex-row max-w-[60px]"
         >
           <lucide-icon
             [name]="navLink.icon"
-            class="size-5 md:hidden"
+            class="size-5"
+            [class.text-blue-400]="isActive(navLink.link)"
           ></lucide-icon>
-          <span class="text-xs md:text-base">{{ navLink.label }}</span>
+          <span
+            class="text-xs md:text-base"
+            [class.text-blue-400]="isActive(navLink.link)"
+            >{{ navLink.label }}</span
+          >
         </a>
+      }
+      @if (isAuthenticated()) {
+        <button
+          appButton
+          (click)="logout()"
+          variant="destructive"
+          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 max-md:bg-transparent max-md:text-red-500 transition-all duration-200 ease-in-out hover:md:scale-105 md:ml-4 md:flex-row max-w-[60px]"
+        >
+          <lucide-icon [name]="LogoutIcon" class="size-4"></lucide-icon>
+          Logout
+        </button>
       }
     </div>
   </div>

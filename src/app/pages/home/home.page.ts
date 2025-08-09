@@ -8,10 +8,10 @@ import { ListingService } from '../../core/services/listing/listing.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
+  templateUrl: './home.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomeComponent implements OnInit {
+export default class HomePage implements OnInit {
   listingsService = inject(ListingService);
 
   listings = this.listingsService.availableListings;

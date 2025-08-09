@@ -11,21 +11,21 @@ export const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        loadComponent: () => import('./pages/home/home.component'),
+        loadComponent: () => import('./pages/home/home.page'),
       },
       {
         path: 'explore',
         pathMatch: 'full',
-        loadComponent: () => import('./pages/explore/explore.component'),
+        loadComponent: () => import('./pages/explore/explore.page'),
       },
       {
         path: 'login',
-        loadComponent: () => import('./pages/login/login.component'),
+        loadComponent: () => import('./pages/login/login.page'),
         canActivate: [loginGuard],
       },
       {
         path: 'dashboard',
-        loadComponent: () => import('./pages/dashboard/dashboard.component'),
+        loadComponent: () => import('./pages/dashboard/dashboard.page'),
         canActivate: [authGuard],
       },
     ],

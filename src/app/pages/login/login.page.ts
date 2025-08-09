@@ -1,41 +1,47 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/authentication/auth.service';
-import {
-  CardComponent,
-  CardContentComponent,
-  CardHeaderComponent,
-} from '../../components/ui/card';
 import { ButtonComponent } from '../../components/ui/button/button.component';
 import { InputComponent } from '../../components/ui/input/input.component';
 import { LabelComponent } from '../../components/ui/label/label.component';
+import { NgOptimizedImage } from '@angular/common';
+import { LoaderCircleIcon, LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    CardComponent,
-    CardHeaderComponent,
-    CardContentComponent,
     ButtonComponent,
     LabelComponent,
     InputComponent,
+    NgOptimizedImage,
+    LucideAngularModule,
   ],
-  templateUrl: './login.component.html',
+  templateUrl: './login.page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class LoginComponent {
-  private fb = inject(FormBuilder);
-  private authService = inject(AuthService);
-  private router = inject(Router);
+export default class LoginPage {
+  #fb = inject(FormBuilder);
+  #authService = inject(AuthService);
+  #router = inject(Router);
 
-  loginForm = this.fb.group({
+  readonly LoadingCircleIcon = LoaderCircleIcon;
+
+  isShowingLoginForm = signal(true);
+  isLoading = this.#authService.isLoading;
+
+  loginForm = this.#fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
 
-  registerForm = this.fb.group({
+  registerForm = this.#fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
     name: ['', Validators.required],
@@ -43,16 +49,16 @@ export default class LoginComponent {
 
   onLogin() {
     if (this.loginForm.valid) {
-      this.authService.login(this.loginForm.value).subscribe(() => {
-        this.router.navigate(['/']);
+      this.#authService.login(this.loginForm.value).subscribe(() => {
+        this.#router.navigate(['/']);
       });
     }
   }
 
   onRegister() {
     if (this.registerForm.valid) {
-      this.authService.register(this.registerForm.value).subscribe(() => {
-        this.router.navigate(['/']);
+      this.#authService.register(this.registerForm.value).subscribe(() => {
+        this.#router.navigate(['/']);
       });
     }
   }

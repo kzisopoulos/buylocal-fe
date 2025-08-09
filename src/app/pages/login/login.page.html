@@ -1,0 +1,142 @@
+<div class="w-full flex flex-col md:flex-row gap-2 justify-between h-full">
+  <div
+    class="flex items-center justify-center md:rounded-t-2xl bg-gray-100 p-6 dark:bg-gray-800 lg:p-10 flex-1"
+  >
+    <img
+      ngSrc="login.svg"
+      alt="Image"
+      width="600"
+      height="600"
+      class="mx-auto"
+    />
+  </div>
+  <div class="flex flex-1 items-center justify-center p-6 lg:p-10">
+    <div class="mx-auto w-full max-w-md space-y-6">
+      <div class="space-y-2 text-center">
+        <h1 class="text-3xl font-bold">
+          @if (isShowingLoginForm()) {
+            Welcome back
+          } @else {
+            Create an account
+          }
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400">
+          @if (isShowingLoginForm()) {
+            Enter your email below to login to your account
+          } @else {
+            Enter your information to create an account
+          }
+        </p>
+      </div>
+      @if (isShowingLoginForm()) {
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()" class="space-y-4">
+          <div class="space-y-2">
+            <label appLabel for="email">Email</label>
+            <input
+              appInput
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="m@example.com"
+              required
+            />
+          </div>
+          <div class="space-y-2">
+            <label appLabel for="password">Password</label>
+            <input
+              appInput
+              id="password"
+              type="password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <button
+            appButton
+            type="submit"
+            class="w-full flex items-center gap-2"
+            [disabled]="loginForm.invalid || isLoading()"
+          >
+            @if (isLoading()) {
+              <lucide-icon
+                [name]="LoadingCircleIcon"
+                class="size-4 animate-spin"
+              ></lucide-icon>
+            }
+            Login
+          </button>
+        </form>
+      } @else {
+        <form
+          [formGroup]="registerForm"
+          (ngSubmit)="onRegister()"
+          class="space-y-4"
+        >
+          <div class="space-y-2">
+            <label appLabel for="name">Name</label>
+            <input
+              appInput
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="Max Robinson"
+              required
+            />
+          </div>
+          <div class="space-y-2">
+            <label appLabel for="email">Email</label>
+            <input
+              appInput
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="m@example.com"
+              required
+            />
+          </div>
+          <div class="space-y-2">
+            <label appLabel for="password">Password</label>
+            <input
+              appInput
+              id="password"
+              type="password"
+              formControlName="password"
+              required
+            />
+          </div>
+          <button
+            appButton
+            type="submit"
+            class="w-full flex items-center gap-2"
+            [disabled]="registerForm.invalid || isLoading()"
+          >
+            @if (isLoading()) {
+              <lucide-icon
+                [name]="LoadingCircleIcon"
+                class="size-4 animate-spin"
+              ></lucide-icon>
+            }
+            Register
+          </button>
+        </form>
+      }
+      <div class="mt-4 text-center text-sm">
+        @if (isShowingLoginForm()) {
+          Don't have an account?
+        } @else {
+          Already have an account?
+        }
+        <a
+          (click)="isShowingLoginForm.set(!isShowingLoginForm())"
+          class="cursor-pointer underline"
+        >
+          @if (isShowingLoginForm()) {
+            Sign up
+          } @else {
+            Sign in
+          }
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
