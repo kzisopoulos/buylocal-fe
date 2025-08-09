@@ -14,7 +14,7 @@
           [routerLink]="navLink.link"
           routerLinkActive="text-blue-400 md:bg-blue-50"
           [routerLinkActiveOptions]="{ exact: true }"
-          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 text-gray-500 transition-all duration-200 ease-in-out hover:text-blue-400 hover:md:bg-blue-50 hover:md:scale-105 md:ml-4 md:flex-row max-w-[60px]"
+          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 text-gray-500 transition-all duration-200 ease-in-out hover:text-blue-400 hover:md:bg-blue-50 hover:md:scale-105 md:ml-4 md:flex-row max-md:max-w-[60px]"
         >
           <lucide-icon
             [name]="navLink.icon"
@@ -33,7 +33,7 @@
           appButton
           (click)="logout()"
           variant="destructive"
-          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 max-md:bg-transparent max-md:text-red-500 transition-all duration-200 ease-in-out hover:md:scale-105 md:ml-4 md:flex-row max-w-[60px]"
+          class="flex flex-col items-center gap-1 rounded-md px-3 py-2 max-md:bg-transparent max-md:text-red-500 transition-all duration-200 ease-in-out hover:md:scale-105 md:ml-4 md:flex-row max-md:max-w-[60px]"
         >
           <lucide-icon [name]="LogoutIcon" class="size-4"></lucide-icon>
           Logout

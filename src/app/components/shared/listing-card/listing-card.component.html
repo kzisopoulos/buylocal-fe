@@ -1,0 +1,16 @@
+<a
+  [routerLink]="'explore/' + listing()?.id"
+  appCard
+  class="flex flex-col flex-1 h-full overflow-hidden"
+>
+  <div appCardContent class="p-0 w-full relative">
+    <img src="dress.jpg" class="w-full" />
+    <div
+      class="absolute flex items-end inset-0 bg-gradient-to-t from-black to-transparent to-25% opacity-90"
+    >
+      <div class="text-white px-2">
+        {{ listing()?.name }}
+      </div>
+    </div>
+  </div>
+</a>

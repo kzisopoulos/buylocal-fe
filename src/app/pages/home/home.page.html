@@ -1,1 +1,9 @@
-<div class="h-full">Home page</div>
+<div class="h-full">
+  <section
+    class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center place-content-center col-span-1 px-2"
+  >
+    @for (listing of listings(); track listing.id) {
+      <app-listing-card [listing]="listing"></app-listing-card>
+    }
+  </section>
+</div>

@@ -12,7 +12,6 @@ import {
   LucideAngularModule,
   SearchIcon,
   ShellIcon,
-  ShoppingCartIcon,
 } from 'lucide-angular';
 import { AuthService } from '../../core/services/authentication/auth.service';
 import { LogoComponent } from '../logo/logo.component';

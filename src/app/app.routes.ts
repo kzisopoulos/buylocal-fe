@@ -15,8 +15,12 @@ export const routes: Routes = [
       },
       {
         path: 'explore',
-        pathMatch: 'full',
         loadComponent: () => import('./pages/explore/explore.page'),
+      },
+      {
+        path: 'explore/:id',
+        loadComponent: () =>
+          import('./pages/explore/listing-details/listing-details.page'),
       },
       {
         path: 'login',

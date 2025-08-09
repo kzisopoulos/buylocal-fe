@@ -18,6 +18,6 @@ export class ListingService {
         withCredentials: true,
       })
       .pipe(take(1))
-      .subscribe((listings) => this.#availableListings.set(listings));
+      .subscribe((listings) => this.#availableListings.set(listings.data));
   }
 }
